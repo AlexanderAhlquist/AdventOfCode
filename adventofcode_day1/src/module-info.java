@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author ahlqu
- *
- */
-module AdventOfCode {
-}
