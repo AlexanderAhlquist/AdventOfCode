@@ -46,8 +46,9 @@ public class DayThree {
 				}
 				sum += temp;
 				temp = 0;
-				System.out.println(sum);
+				
 			}
+			System.out.println(sum);
 		}
 	}
 }
