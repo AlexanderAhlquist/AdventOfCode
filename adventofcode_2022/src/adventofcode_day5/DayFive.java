@@ -15,7 +15,7 @@ public class DayFive {
 		int removeFrom = Integer.parseInt(instruction[1]) - 1;
 		int destination= Integer.parseInt(instruction[2]) - 1;
 		for (int i = 0; i < moveQuantity; i++) {
-			input.get(destination).add(i, input.get(removeFrom).remove(0));
+			input.get(destination).add(0, input.get(removeFrom).remove(0));
 		}
 		return input;
 	}
