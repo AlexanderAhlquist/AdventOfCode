@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
-public class DayFive {
+public class DayFivePartTwo {
 	public static List<List<String>> moveBox(String[] instruction, List<List<String>> input) {
 		int moveQuantity = Integer.parseInt(instruction[0]);
 		int removeFrom = Integer.parseInt(instruction[1]) - 1;
