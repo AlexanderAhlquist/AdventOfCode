@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import org.w3c.dom.Node;
+
 public class DaySeven {
 	public TreeNode root;
 
@@ -25,6 +27,23 @@ public class DaySeven {
 		System.out.println(levelMarks + current.data);
 		for (TreeNode child : current.children) {
 			print(child, level + 1);
+			
+		}
+	}
+	public int count(TreeNode current) {
+		if ((current.data instanceof String) == false) {
+			return (int)current.data;
+		}else {
+			int sum = 0;
+			for(TreeNode c : current.children) {
+				sum += count(c);
+				
+			}
+			if (sum < 100000) {
+				return sum;
+			}
+			else {sum =0;}
+			return sum;
 		}
 		
 	}
@@ -33,7 +52,7 @@ public class DaySeven {
 		TreeNode root = new TreeNode("/");
 		TreeNode current = new TreeNode(null);
 		File file = new File(
-				"C:\\Users\\ahlqu\\OneDrive\\Desktop\\Java Projects\\AdventOfCode\\adventofcode_2022\\src\\adventofcode_day7\\dayseveninput.txt");
+				"C:\\Users\\Alexander Ahlquist\\Desktop\\AdventOfCode\\adventofcode_2022\\src\\adventofcode_day7\\testday7.txt");
 		Scanner input = new Scanner(file);
 		while (input.hasNext()) {
 			String line = input.nextLine();
@@ -47,16 +66,17 @@ public class DaySeven {
 				System.out.println("Going up a level");
 			} else if (line.substring(0, 4).equals("$ cd")) {
 				
-				current.addChild(line.substring(5));
+				current = current.addChild(line.substring(5));
 				
 				System.out.println("Created new node");
 			} else if (line.matches(".*\\d.*")) {
-				current.addChild(line);
+				current.addChild(Integer.parseInt(line.replaceAll("[^0-9]", "")));
 				System.out.println("Added data");
 			}
 			
 		}
 		DaySeven tree = new DaySeven(root);
 		tree.print(root, 1);
+		System.out.println(tree.count(root));
 	}
 }

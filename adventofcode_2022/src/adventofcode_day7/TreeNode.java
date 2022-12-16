@@ -15,7 +15,7 @@ public class TreeNode {
 
 	public TreeNode addChild(TreeNode child) {
 		this.children.add(child);
-		this.parent = this;
+		child.parent = this;
 		return child;
 
 	}
@@ -23,9 +23,11 @@ public class TreeNode {
 	public TreeNode addChild(Object childData) {
 		TreeNode child = new TreeNode(childData);
 		this.children.add(child);
-		this.parent = this;
+		child.parent = this;
 		return child;
 	}
+	
+	
 	public TreeNode getParent(TreeNode child) {
 		return child.parent;
 	}
